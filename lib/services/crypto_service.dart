@@ -461,7 +461,6 @@ class CryptoService {
   }
 
   // === HÀM 4: NHẬN & GIẢI MÃ TIN NHẮN NHÓM ===
-  // Lấy Sender Key của người gửi ra để giải mã tin nhắn.
   static Future<String?> decryptGroupMessage(
       DocumentSnapshot msg,
       String myId,
@@ -496,7 +495,6 @@ class CryptoService {
         }
         _groupSenderKeyCache[cacheKey] = senderKey;
       } else {
-        // Lấy Sender Key mà người gửi đã mã hóa cho riêng mình
         final keyDoc = await FirebaseFirestore.instance
             .collection('groups')
             .doc(groupId)

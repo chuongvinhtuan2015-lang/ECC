@@ -19,7 +19,6 @@ class _AddFriendScreenState extends State<AddFriendScreen> {
     final currentUser = _auth.currentUser;
     if (currentUser == null) return;
 
-    // CHỈ cập nhật mảng của CHÍNH MÌNH. Không tự động chèn vào mảng của người kia.
     await _firestore.collection('users').doc(currentUser.uid).update({
       'friendIds': FieldValue.arrayUnion([friendId])
     });
